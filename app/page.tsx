@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
 export default function Home() {
@@ -53,8 +54,14 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#1B1B1B]/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
-		  <Image src="/logo.png"alt="Card Chaser Club".../>
-           <div className="h-10 w-10 rounded-2xl bg-[#00B8D4]/20 ring-1 ring-[#00B8D4]/40" />
+            <Image
+              src="/logo.png"
+              alt="Card Chaser Club"
+              width={42}
+              height={42}
+              priority
+            />
+            <div className="h-10 w-10 rounded-2xl bg-[#00B8D4]/20 ring-1 ring-[#00B8D4]/40" />
             <div className="leading-tight">
               <div className="text-sm font-semibold tracking-tight text-white">
                 Card Chaser Club
