@@ -66,9 +66,6 @@ export default function Home() {
                 <span className="text-[#00B8D4]">Card</span> Chaser{" "}
                 <span className="text-[#00B8D4]">Club</span>
               </div>
-              <div className="text-xs text-white/60">
-                Fee-Free Local Marketplace
-              </div>
             </div>
           </div>
 
