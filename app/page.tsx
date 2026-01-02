@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import { useEffect, useMemo, useState } from "react";
 
@@ -102,38 +102,26 @@ export default function Home() {
         <div>
           <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">
             <span className="h-2 w-2 rounded-full bg-[#00B8D4]" />
-            Launching first in the WI / IL Stateline area
+            Beta access now open in select counties
           </div>
 
           <h1 className="mt-5 text-4xl font-extrabold tracking-tight md:text-6xl">
             <span className="block">Join The Club.</span>
             <span className="mt-3 block text-[#00B8D4]">No Listing Fees.</span>
-            <span className="mt-2 block text-[#00B8D4]">No Selling Fees.</span>
+            <span className="mt-2 block text-[#00B8D4]/85">No Selling Fees.</span>
           </h1>
         </div>
 
-        {/* Right - Placeholder hero art (phone/in-app visual later) */}
+        {/* Right - Hero Art */}
         <div className="rounded-3xl bg-white/5 p-5 ring-1 ring-white/10">
-          <div className="rounded-2xl bg-gradient-to-b from-white/10 to-transparent p-5">
-            <div className="flex items-center justify-between">
-              <p className="text-sm text-white/70">In-app map preview</p>
-              <span className="rounded-full bg-[#00B8D4]/20 px-3 py-1 text-xs font-semibold text-[#00B8D4] ring-1 ring-[#00B8D4]/40">
-                Teaser
-              </span>
-            </div>
-
-            <div className="mt-4 overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10">
-              <div className="h-64 w-full bg-[radial-gradient(circle_at_30%_30%,rgba(0,184,212,0.25),transparent_55%),radial-gradient(circle_at_70%_55%,rgba(255,255,255,0.10),transparent_45%)]" />
-              <div className="p-4">
-                <p className="text-sm text-white/75">
-                  Phone + in-app map visual goes here (with your branded waypoint).
-                </p>
-                <p className="mt-2 text-xs text-white/45">
-                  We’ll swap this placeholder once the waypoint asset is finalized
-                  in the logo thread.
-                </p>
-              </div>
-            </div>
+          <div className="overflow-hidden rounded-2xl ring-1 ring-white/10">
+            {/* Put your generated image in: /public/hero-banner.png */}
+            <img
+              src="/hero-banner.png"
+              alt="Two collectors reviewing sports cards locally"
+              className="h-[420px] w-full object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
 
@@ -259,10 +247,12 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-white/10 py-10">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="text-base font-semibold text-[#00B8D4]">
-            Card Chaser Club
+          <div className="text-base font-semibold text-white">
+            Card <span className="text-[#00B8D4]">Chaser</span> Club
           </div>
-          <div className="mt-1 text-sm text-white/55">Buy, Sell &amp; Trade Locally.</div>
+          <div className="mt-1 text-sm text-white/55">
+            Buy, Sell &amp; Trade Locally.
+          </div>
 
           <div className="mt-8 text-xs text-white/40">
             © {new Date().getFullYear()} Card Chaser Club. All rights reserved.
@@ -278,7 +268,7 @@ export default function Home() {
           className="fixed bottom-8 left-1/2 z-50 -translate-x-1/2 rounded-full border border-white/20 bg-transparent px-6 py-2 text-sm text-white/70 backdrop-blur hover:bg-white/10"
           aria-label="Back to top"
         >
-          ↑ Back To Top
+          Back To Top
         </button>
       )}
     </main>
