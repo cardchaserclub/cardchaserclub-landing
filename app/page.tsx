@@ -53,14 +53,14 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#1B1B1B]/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
-            {/* Placeholder logo mark (swap later) */}
-            <div className="h-10 w-10 rounded-2xl bg-[#00B8D4]/20 ring-1 ring-[#00B8D4]/40" />
+		  <Image src="/logo.png"alt="Card Chaser Club".../>
+           <div className="h-10 w-10 rounded-2xl bg-[#00B8D4]/20 ring-1 ring-[#00B8D4]/40" />
             <div className="leading-tight">
               <div className="text-sm font-semibold tracking-tight text-white">
                 Card Chaser Club
               </div>
               <div className="text-xs text-white/60">
-                Fee-free local marketplace
+                Fee-Free Local Marketplace
               </div>
             </div>
           </div>
@@ -102,7 +102,7 @@ export default function Home() {
         <div>
           <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70">
             <span className="h-2 w-2 rounded-full bg-[#00B8D4]" />
-            Beta access now open in select counties
+            Beta access now open in select areas
           </div>
 
           <h1 className="mt-5 text-4xl font-extrabold tracking-tight md:text-6xl">
