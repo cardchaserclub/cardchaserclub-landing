@@ -61,10 +61,10 @@ export default function Home() {
               height={42}
               priority
             />
-            <div className="h-10 w-10 rounded-2xl bg-[#00B8D4]/20 ring-1 ring-[#00B8D4]/40" />
             <div className="leading-tight">
               <div className="text-sm font-semibold tracking-tight text-white">
-                Card Chaser Club
+                <span className="text-[#00B8D4]">Card</span> Chaser{" "}
+                <span className="text-[#00B8D4]">Club</span>
               </div>
               <div className="text-xs text-white/60">
                 Fee-Free Local Marketplace
@@ -75,19 +75,19 @@ export default function Home() {
           <nav className="hidden items-center gap-6 md:flex">
             <a
               href="#how-it-works"
-              className="text-sm font-medium text-white/70 hover:text-white"
+              className="text-sm font-medium text-white/70 hover:text-[#00B8D4]"
             >
               How It Works
             </a>
             <a
               href="#why-ccc"
-              className="text-sm font-medium text-white/70 hover:text-white"
+              className="text-sm font-medium text-white/70 hover:text-[#00B8D4]"
             >
               Why CCC
             </a>
             <a
               href="#safety"
-              className="text-sm font-medium text-white/70 hover:text-white"
+              className="text-sm font-medium text-white/70 hover:text-[#00B8D4]"
             >
               Safety &amp; Trust
             </a>
@@ -113,9 +113,18 @@ export default function Home() {
           </div>
 
           <h1 className="mt-5 text-4xl font-extrabold tracking-tight md:text-6xl">
-            <span className="block">Join The Club.</span>
-            <span className="mt-3 block text-[#00B8D4]">No Listing Fees.</span>
-            <span className="mt-2 block text-[#00B8D4]/85">No Selling Fees.</span>
+            <span className="block">
+              <span className="text-[#00B8D4]">Join</span> The{" "}
+              <span className="text-[#00B8D4]">Club</span>
+            </span>
+            <span className="mt-3 block">
+              <span className="text-[#00B8D4]">No</span> Listing{" "}
+              <span className="text-[#00B8D4]">Fees</span>
+            </span>
+            <span className="mt-2 block">
+              <span className="text-[#00B8D4]">No</span> Selling{" "}
+              <span className="text-[#00B8D4]">Fees</span>
+            </span>
           </h1>
         </div>
 
@@ -131,9 +140,11 @@ export default function Home() {
             />
           </div>
         </div>
+      </section>
 
-        {/* Meet Local Hobbyists (branded like section headers) */}
-        <div className="md:col-span-2">
+      {/* Meet Local Hobbyists (lighter section starts here) */}
+      <section className="bg-white/[0.03]">
+        <div className="mx-auto max-w-6xl px-6 py-14 md:py-16">
           <h2 className="mt-2 text-2xl font-bold tracking-tight md:text-3xl">
             Meet Local <span className="text-[#00B8D4]">Hobbyists</span>
           </h2>
@@ -255,7 +266,8 @@ export default function Home() {
       <footer className="border-t border-white/10 py-10">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-base font-semibold text-white">
-            Card <span className="text-[#00B8D4]">Chaser</span> Club
+            <span className="text-[#00B8D4]">Card</span> Chaser{" "}
+            <span className="text-[#00B8D4]">Club</span>
           </div>
           <div className="mt-1 text-sm text-white/55">
             Buy, Sell &amp; Trade Locally.
