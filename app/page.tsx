@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 
 export default function Home() {
+  // TODO: Replace with your real store URLs when ready
   const APP_STORE_URL = "https://apps.apple.com/";
   const PLAY_STORE_URL = "https://play.google.com/store";
 
@@ -29,8 +30,13 @@ export default function Home() {
       return;
     }
 
-    const el = document.getElementById("get-app");
-    el?.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Desktop/unknown -> open App Store page (single CTA only, per your request)
+    window.open(APP_STORE_URL, "_blank", "noopener,noreferrer");
+  };
+
+  const handleBackToTop = () => {
+    if (typeof window === "undefined") return;
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -39,10 +45,9 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#1B1B1B]/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
           <div className="flex items-center gap-3">
+            {/* Placeholder logo mark (swap later) */}
             <div className="h-9 w-9 rounded-xl bg-[#00B8D4]/20 ring-1 ring-[#00B8D4]/40" />
-            <span className="text-base font-semibold tracking-tight">
-              Card Chaser Club
-            </span>
+            <span className="text-base font-semibold tracking-tight">Card Chaser Club</span>
           </div>
 
           <nav className="flex items-center gap-1 sm:gap-2">
@@ -62,7 +67,7 @@ export default function Home() {
               href="#safety"
               className="hidden rounded-xl px-3 py-2 text-sm text-white/70 hover:bg-white/10 md:inline-block"
             >
-              Safety &amp; Trust
+              Safety
             </a>
             <button
               type="button"
@@ -85,112 +90,96 @@ export default function Home() {
               Launching first in the WI / IL Stateline area
             </div>
 
-            {/* HERO HEADER (3 lines) */}
-            <h1 className="mt-6 text-4xl font-extrabold tracking-tight md:text-6xl">
+            <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] tracking-tight md:text-6xl">
               <span className="block">Join the Club.</span>
-              <span className="mt-3 block text-[#00B8D4]">No listing fees.</span>
-              <span className="mt-2 block text-[#00B8D4]">No selling fees.</span>
+              <span className="block text-[#00B8D4]">No listing fees.</span>
+              <span className="block text-[#00B8D4]">No selling fees.</span>
             </h1>
+          </div>
 
-            {/* HERO ART (aligned with scope: local trading / hobby) */}
-            <div className="mt-8 overflow-hidden rounded-3xl ring-1 ring-white/10 md:hidden">
-              <img
-                src="https://images.unsplash.com/photo-1518544887879-61bcb0b6b9f7?auto=format&fit=crop&w=1600&q=70"
-                alt="Trading cards on a table"
-                className="h-64 w-full object-cover"
-                loading="lazy"
-              />
+          {/* Right - Hero visual + subheader + copy (kept next to hero headline) */}
+          <div>
+            <div className="rounded-3xl bg-white/5 p-5 ring-1 ring-white/10">
+              <div className="overflow-hidden rounded-2xl bg-black/30 ring-1 ring-white/10">
+                {/* Inline SVG visual (brand-aligned: cards + map pin) */}
+                <div className="relative h-56 w-full">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(0,184,212,0.28),transparent_45%),radial-gradient(circle_at_75%_55%,rgba(255,255,255,0.10),transparent_45%)]" />
+                  <svg
+                    className="absolute inset-0 h-full w-full"
+                    viewBox="0 0 720 320"
+                    aria-hidden="true"
+                  >
+                    {/* stacked cards */}
+                    <g opacity="0.95">
+                      <rect
+                        x="175"
+                        y="80"
+                        width="240"
+                        height="160"
+                        rx="22"
+                        fill="rgba(255,255,255,0.08)"
+                        stroke="rgba(255,255,255,0.18)"
+                      />
+                      <rect
+                        x="210"
+                        y="60"
+                        width="240"
+                        height="160"
+                        rx="22"
+                        fill="rgba(0,0,0,0.28)"
+                        stroke="rgba(255,255,255,0.14)"
+                      />
+                      <rect
+                        x="245"
+                        y="40"
+                        width="240"
+                        height="160"
+                        rx="22"
+                        fill="rgba(255,255,255,0.06)"
+                        stroke="rgba(255,255,255,0.16)"
+                      />
+                      {/* teal accent stripe */}
+                      <rect x="265" y="62" width="200" height="8" rx="4" fill="#00B8D4" opacity="0.8" />
+                      {/* simple “card art” lines */}
+                      <rect x="270" y="88" width="190" height="90" rx="16" fill="rgba(255,255,255,0.05)" />
+                      <rect x="285" y="194" width="120" height="10" rx="5" fill="rgba(255,255,255,0.12)" />
+                      <rect x="285" y="212" width="160" height="8" rx="4" fill="rgba(255,255,255,0.10)" />
+                    </g>
+
+                    {/* map pin */}
+                    <g transform="translate(520 76)">
+                      <path
+                        d="M64 0c-30 0-54 24-54 54 0 38 54 106 54 106s54-68 54-106C118 24 94 0 64 0z"
+                        fill="rgba(0,184,212,0.22)"
+                        stroke="rgba(0,184,212,0.65)"
+                        strokeWidth="3"
+                      />
+                      <circle cx="64" cy="54" r="18" fill="#00B8D4" opacity="0.85" />
+                      <circle cx="64" cy="54" r="8" fill="rgba(0,0,0,0.35)" />
+                    </g>
+                  </svg>
+                </div>
+
+                <div className="p-4">
+                  <p className="text-xs text-white/55">Local meetups • Public locations • In-app chat</p>
+                </div>
+              </div>
             </div>
 
-            {/* Meet Local Hobbyists (branded like section headers) */}
-            <h2 className="mt-8 text-2xl font-bold tracking-tight md:text-3xl">
+            <h2 className="mt-6 text-2xl font-bold tracking-tight md:text-3xl">
               Meet Local <span className="text-[#00B8D4]">Hobbyists</span>
             </h2>
             <div className="mt-3 h-1 w-14 rounded-full bg-[#00B8D4]/70" />
 
-            {/* Copy edit */}
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
-              Buy, sell, and trade cards with people near you—without giving up 30%
-              or more to traditional online marketplaces. Chase cards locally and
-              connect with other hobbyists.
+            <p className="mt-6 rounded-2xl bg-white/[0.03] p-5 text-base leading-relaxed text-white/75 ring-1 ring-white/10 md:text-lg">
+              Buy, sell, and trade cards with people near you—without giving up 30% or more to traditional
+              online marketplaces. Chase cards locally and meet other hobbyists.
             </p>
-          </div>
-
-          {/* Right: Desktop hero art + store buttons under art */}
-          <div className="hidden md:block">
-            <div className="overflow-hidden rounded-3xl ring-1 ring-white/10">
-              <img
-                src="https://images.unsplash.com/photo-1518544887879-61bcb0b6b9f7?auto=format&fit=crop&w=1600&q=70"
-                alt="Trading cards on a table"
-                className="h-[420px] w-full object-cover"
-                loading="lazy"
-              />
-            </div>
-
-            {/* Store buttons under art */}
-            <div id="get-app" className="mt-6 flex flex-col gap-4">
-              <a
-                href={APP_STORE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Download on the App Store"
-                className="inline-flex h-14 items-center justify-center rounded-xl bg-black px-6 text-white ring-1 ring-white/10 hover:opacity-90"
-              >
-                <div className="text-left leading-tight">
-                  <div className="text-[11px] text-white/70">Download on the</div>
-                  <div className="text-sm font-semibold">App Store</div>
-                </div>
-              </a>
-
-              <a
-                href={PLAY_STORE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Get it on Google Play"
-                className="inline-flex h-14 items-center justify-center rounded-xl bg-black px-6 text-white ring-1 ring-white/10 hover:opacity-90"
-              >
-                <div className="text-left leading-tight">
-                  <div className="text-[11px] text-white/70">Get it on</div>
-                  <div className="text-sm font-semibold">Google Play</div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          {/* MOBILE store buttons (kept in the same #get-app anchor, under art) */}
-          <div className="md:hidden">
-            <div id="get-app" className="mt-6 flex flex-col gap-4 sm:flex-row">
-              <a
-                href={APP_STORE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Download on the App Store"
-                className="inline-flex h-14 items-center justify-center rounded-xl bg-black px-6 text-white ring-1 ring-white/10 hover:opacity-90"
-              >
-                <div className="text-left leading-tight">
-                  <div className="text-[11px] text-white/70">Download on the</div>
-                  <div className="text-sm font-semibold">App Store</div>
-                </div>
-              </a>
-
-              <a
-                href={PLAY_STORE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Get it on Google Play"
-                className="inline-flex h-14 items-center justify-center rounded-xl bg-black px-6 text-white ring-1 ring-white/10 hover:opacity-90"
-              >
-                <div className="text-left leading-tight">
-                  <div className="text-[11px] text-white/70">Get it on</div>
-                  <div className="text-sm font-semibold">Google Play</div>
-                </div>
-              </a>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* How it works */}
+      {/* How It Works */}
       <section id="how" className="mx-auto max-w-6xl px-5 py-14 md:py-16">
         <div className="max-w-3xl">
           <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
@@ -198,18 +187,18 @@ export default function Home() {
           </h2>
           <div className="mt-3 h-1 w-14 rounded-full bg-[#00B8D4]/70" />
 
-          <p className="mt-6 text-base text-white/75 md:text-lg">
-            Browse cards and collectibles near you, with the ability to adjust your search radius to
-            fit what works best for you. (Buy, sell, or trade) by seeing what local hobbyists are
-            offering in your area.
+          <p className="mt-6 rounded-2xl bg-white/[0.03] p-5 text-base text-white/75 ring-1 ring-white/10 md:text-lg">
+            Browse cards and collectibles near you, with the ability to adjust your search radius to fit
+            what works best for you. (Buy, sell, or trade) by seeing what local hobbyists are offering in
+            your area.
           </p>
 
           <p className="mt-5 text-base text-white/75 md:text-lg">
-            If you’re buying, connect directly with sellers to ask questions, confirm details, and
-            set up a time to meet.
+            If you’re buying, connect directly with sellers to ask questions, confirm details, and set up
+            a time to meet.
           </p>
 
-          <p className="mt-5 text-base text-white/75 md:text-lg">
+          <p className="mt-5 rounded-2xl bg-white/[0.03] p-5 text-base text-white/75 ring-1 ring-white/10 md:text-lg">
             If you’re selling, list your cards and communicate directly with interested hobbyists—no
             listing fees, no selling fees.
           </p>
@@ -229,27 +218,27 @@ export default function Home() {
             </h2>
             <div className="mt-3 h-1 w-14 rounded-full bg-[#00B8D4]/70" />
 
-            <p className="mt-6 text-base text-white/75 md:text-lg">
-              Trading cards shouldn’t feel like work, risk, or a financial hit before a deal even
-              happens. But most collectors are pushed into platforms built around shipping, fees,
-              and volume—not community.
+            <p className="mt-6 rounded-2xl bg-black/20 p-5 text-base text-white/75 ring-1 ring-white/10 md:text-lg">
+              Trading cards shouldn’t feel like work, risk, or a financial hit before a deal even happens.
+              But most collectors are pushed into platforms built around shipping, fees, and volume—not
+              community.
             </p>
 
             <p className="mt-5 text-base text-white/75 md:text-lg">
-              Online marketplaces take a large cut of every sale. Social media groups are
-              unorganized and rely on trust between strangers in private messages. Local deals still
-              happen, but without structure, consistency, or safeguards.
+              Online marketplaces take a large cut of every sale. Social media groups are unorganized and
+              rely on trust between strangers in private messages. Local deals still happen, but without
+              structure, consistency, or safeguards.
             </p>
 
-            <p className="mt-5 text-base text-white/75 md:text-lg">
-              Card Chaser Club exists to bring card trading back to what it should be—local,
-              personal, and fair. A place built for hobbyists who want to connect, trade, and keep
-              more of the value in their collection.
+            <p className="mt-5 rounded-2xl bg-black/20 p-5 text-base text-white/75 ring-1 ring-white/10 md:text-lg">
+              Card Chaser Club exists to bring card trading back to what it should be—local, personal, and
+              fair. A place built for hobbyists who want to connect, trade, and keep more of the value in
+              their collection.
             </p>
 
             <p className="mt-5 text-base font-semibold text-white md:text-lg">
-              No listing fees. No selling fees. No unnecessary middlemen. Just a better way to chase
-              cards with people near you.
+              No listing fees. No selling fees. No unnecessary middlemen. Just a better way to chase cards
+              with people near you.
             </p>
           </div>
         </div>
@@ -263,26 +252,25 @@ export default function Home() {
           </h2>
           <div className="mt-3 h-1 w-14 rounded-full bg-[#00B8D4]/70" />
 
-          <p className="mt-6 text-base text-white/75 md:text-lg">
+          <p className="mt-6 rounded-2xl bg-white/[0.03] p-5 text-base text-white/75 ring-1 ring-white/10 md:text-lg">
             Meeting in person should feel comfortable, not uncertain. That’s why Card Chaser Club is
             designed around transparency, accountability, and public meetups.
           </p>
 
           <p className="mt-5 text-base text-white/75 md:text-lg">
-            Users connect through in-app messaging so details stay in one place. Meetups happen at
-            public locations selected on the map, helping both sides feel confident before a deal
-            takes place.
+            Users connect through in-app messaging so details stay in one place. Meetups happen at public
+            locations selected on the map, helping both sides feel confident before a deal takes place.
+          </p>
+
+          <p className="mt-5 rounded-2xl bg-white/[0.03] p-5 text-base text-white/75 ring-1 ring-white/10 md:text-lg">
+            Profiles, ratings, and repeat interactions help build trust over time, while simple reporting
+            tools give the community a way to flag bad behavior when needed.
           </p>
 
           <p className="mt-5 text-base text-white/75 md:text-lg">
-            Profiles, ratings, and repeat interactions help build trust over time, while simple
-            reporting tools give the community a way to flag bad behavior when needed.
-          </p>
-
-          <p className="mt-5 text-base text-white/75 md:text-lg">
-            Card Chaser Club doesn’t replace common sense—it supports it. By keeping trades local,
-            visible, and structured, the platform helps collectors focus on the hobby instead of
-            worrying about what could go wrong.
+            Card Chaser Club doesn’t replace common sense—it supports it. By keeping trades local, visible,
+            and structured, the platform helps collectors focus on the hobby instead of worrying about what
+            could go wrong.
           </p>
         </div>
       </section>
@@ -292,40 +280,11 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-5">
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div>
-              <div className="text-base font-semibold text-[#00B8D4]">
-                Card Chaser Club
+              <div className="text-base font-semibold">
+                <span>Card Chaser </span>
+                <span className="text-[#00B8D4]">Club</span>
               </div>
-              <div className="mt-1 text-sm text-white/55">
-                Buy, Sell &amp; Trade Locally.
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-2 text-sm text-white/55">
-              <a
-                className="rounded-lg px-3 py-2 hover:bg-white/10 hover:text-[#00B8D4]"
-                href="#how"
-              >
-                How It Works
-              </a>
-              <a
-                className="rounded-lg px-3 py-2 hover:bg-white/10 hover:text-[#00B8D4]"
-                href="#why"
-              >
-                Why CCC
-              </a>
-              <a
-                className="rounded-lg px-3 py-2 hover:bg-white/10 hover:text-[#00B8D4]"
-                href="#safety"
-              >
-                Safety &amp; Trust
-              </a>
-              <button
-                type="button"
-                onClick={handleGetApp}
-                className="rounded-lg px-3 py-2 hover:bg-white/10 hover:text-[#00B8D4]"
-              >
-                Get App
-              </button>
+              <div className="mt-1 text-sm text-white/55">Buy, Sell &amp; Trade Locally.</div>
             </div>
           </div>
 
@@ -334,6 +293,16 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Back to top pop-up arrow */}
+      <button
+        type="button"
+        onClick={handleBackToTop}
+        aria-label="Back to top"
+        className="fixed bottom-6 right-6 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#00B8D4] text-lg font-black text-black shadow-lg shadow-[#00B8D4]/20 hover:opacity-90"
+      >
+        ↑
+      </button>
     </main>
   );
 }
