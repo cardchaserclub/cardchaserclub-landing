@@ -50,7 +50,7 @@ export default function Home() {
               href="#how"
               className="hidden rounded-xl px-3 py-2 text-sm text-white/70 hover:bg-white/10 md:inline-block"
             >
-              How it works
+              How It Works
             </a>
             <a
               href="#why"
@@ -62,7 +62,7 @@ export default function Home() {
               href="#safety"
               className="hidden rounded-xl px-3 py-2 text-sm text-white/70 hover:bg-white/10 md:inline-block"
             >
-              Safety
+              Safety &amp; Trust
             </a>
             <button
               type="button"
@@ -85,46 +85,43 @@ export default function Home() {
               Launching first in the WI / IL Stateline area
             </div>
 
-            {/* HERO HEADER */}
+            {/* HERO HEADER (3 lines) */}
             <h1 className="mt-6 text-4xl font-extrabold tracking-tight md:text-6xl">
               <span className="block">Join the Club.</span>
-              <span className="mt-3 block text-[#00B8D4]">
-                No listing fees.
-              </span>
-              <span className="mt-2 block text-[#00B8D4]">
-                No selling fees.
-              </span>
+              <span className="mt-3 block text-[#00B8D4]">No listing fees.</span>
+              <span className="mt-2 block text-[#00B8D4]">No selling fees.</span>
             </h1>
 
-            {/* HERO ART (mobile-first placement) */}
+            {/* HERO ART (aligned with scope: local trading / hobby) */}
             <div className="mt-8 overflow-hidden rounded-3xl ring-1 ring-white/10 md:hidden">
               <img
-                src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1600&q=70"
-                alt="Sports trading cards"
+                src="https://images.unsplash.com/photo-1518544887879-61bcb0b6b9f7?auto=format&fit=crop&w=1600&q=70"
+                alt="Trading cards on a table"
                 className="h-64 w-full object-cover"
                 loading="lazy"
               />
             </div>
 
-            {/* Meet local hobbyists — BRANDED */}
+            {/* Meet Local Hobbyists (branded like section headers) */}
             <h2 className="mt-8 text-2xl font-bold tracking-tight md:text-3xl">
-              Meet local <span className="text-[#00B8D4]">hobbyists</span>
+              Meet Local <span className="text-[#00B8D4]">Hobbyists</span>
             </h2>
             <div className="mt-3 h-1 w-14 rounded-full bg-[#00B8D4]/70" />
 
+            {/* Copy edit */}
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
-              A simple way to buy, sell, and trade cards with people near you—without
-              giving up 30% or more to traditional online marketplaces. Keep more of
-              the value in your pocket by chasing cards locally with other hobbyists.
+              Buy, sell, and trade cards with people near you—without giving up 30%
+              or more to traditional online marketplaces. Chase cards locally and
+              connect with other hobbyists.
             </p>
           </div>
 
-          {/* Right: Desktop hero art + store buttons */}
+          {/* Right: Desktop hero art + store buttons under art */}
           <div className="hidden md:block">
             <div className="overflow-hidden rounded-3xl ring-1 ring-white/10">
               <img
-                src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1600&q=70"
-                alt="Sports trading cards"
+                src="https://images.unsplash.com/photo-1518544887879-61bcb0b6b9f7?auto=format&fit=crop&w=1600&q=70"
+                alt="Trading cards on a table"
                 className="h-[420px] w-full object-cover"
                 loading="lazy"
               />
@@ -136,6 +133,7 @@ export default function Home() {
                 href={APP_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Download on the App Store"
                 className="inline-flex h-14 items-center justify-center rounded-xl bg-black px-6 text-white ring-1 ring-white/10 hover:opacity-90"
               >
                 <div className="text-left leading-tight">
@@ -148,6 +146,38 @@ export default function Home() {
                 href={PLAY_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Get it on Google Play"
+                className="inline-flex h-14 items-center justify-center rounded-xl bg-black px-6 text-white ring-1 ring-white/10 hover:opacity-90"
+              >
+                <div className="text-left leading-tight">
+                  <div className="text-[11px] text-white/70">Get it on</div>
+                  <div className="text-sm font-semibold">Google Play</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {/* MOBILE store buttons (kept in the same #get-app anchor, under art) */}
+          <div className="md:hidden">
+            <div id="get-app" className="mt-6 flex flex-col gap-4 sm:flex-row">
+              <a
+                href={APP_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Download on the App Store"
+                className="inline-flex h-14 items-center justify-center rounded-xl bg-black px-6 text-white ring-1 ring-white/10 hover:opacity-90"
+              >
+                <div className="text-left leading-tight">
+                  <div className="text-[11px] text-white/70">Download on the</div>
+                  <div className="text-sm font-semibold">App Store</div>
+                </div>
+              </a>
+
+              <a
+                href={PLAY_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Get it on Google Play"
                 className="inline-flex h-14 items-center justify-center rounded-xl bg-black px-6 text-white ring-1 ring-white/10 hover:opacity-90"
               >
                 <div className="text-left leading-tight">
@@ -164,7 +194,7 @@ export default function Home() {
       <section id="how" className="mx-auto max-w-6xl px-5 py-14 md:py-16">
         <div className="max-w-3xl">
           <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
-            How it <span className="text-[#00B8D4]">works</span>
+            How It <span className="text-[#00B8D4]">Works</span>
           </h2>
           <div className="mt-3 h-1 w-14 rounded-full bg-[#00B8D4]/70" />
 
@@ -262,24 +292,32 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-5">
           <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
             <div>
-              <div className="text-base font-semibold">Card Chaser Club</div>
+              <div className="text-base font-semibold text-[#00B8D4]">
+                Card Chaser Club
+              </div>
               <div className="mt-1 text-sm text-white/55">
-                Fee-free hobbyist marketplace. Buy, sell &amp; trade locally.
+                Buy, Sell &amp; Trade Locally.
               </div>
             </div>
 
             <div className="flex flex-wrap gap-2 text-sm text-white/55">
-              <a className="rounded-lg px-3 py-2 hover:bg-white/10 hover:text-[#00B8D4]" href="#how">
-                How it works
+              <a
+                className="rounded-lg px-3 py-2 hover:bg-white/10 hover:text-[#00B8D4]"
+                href="#how"
+              >
+                How It Works
               </a>
-              <a className="rounded-lg px-3 py-2 hover:bg-white/10 hover:text-[#00B8D4]" href="#why">
+              <a
+                className="rounded-lg px-3 py-2 hover:bg-white/10 hover:text-[#00B8D4]"
+                href="#why"
+              >
                 Why CCC
               </a>
               <a
                 className="rounded-lg px-3 py-2 hover:bg-white/10 hover:text-[#00B8D4]"
                 href="#safety"
               >
-                Safety
+                Safety &amp; Trust
               </a>
               <button
                 type="button"
