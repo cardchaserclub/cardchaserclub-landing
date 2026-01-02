@@ -3,7 +3,6 @@
 import { useMemo } from "react";
 
 export default function Home() {
-  // TODO: Replace with your real store URLs when ready
   const APP_STORE_URL = "https://apps.apple.com/";
   const PLAY_STORE_URL = "https://play.google.com/store";
 
@@ -30,7 +29,6 @@ export default function Home() {
       return;
     }
 
-    // Desktop/unknown -> scroll to store buttons
     const el = document.getElementById("get-app");
     el?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
@@ -41,7 +39,6 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#1B1B1B]/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
           <div className="flex items-center gap-3">
-            {/* Placeholder logo mark (swap later) */}
             <div className="h-9 w-9 rounded-xl bg-[#00B8D4]/20 ring-1 ring-[#00B8D4]/40" />
             <span className="text-base font-semibold tracking-tight">
               Card Chaser Club
@@ -80,7 +77,7 @@ export default function Home() {
 
       {/* Hero */}
       <section className="mx-auto max-w-6xl px-5 pb-12 pt-10 md:pb-16 md:pt-14">
-        <div className="grid gap-10 md:grid-cols-2 md:items-center">
+        <div className="grid gap-10 md:grid-cols-2 md:items-start">
           {/* Left */}
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 text-xs text-white/70 ring-1 ring-white/10">
@@ -88,21 +85,57 @@ export default function Home() {
               Launching first in the WI / IL Stateline area
             </div>
 
-            <h1 className="mt-5 text-4xl font-extrabold tracking-tight md:text-6xl">
-              Join the Club.
-              <br />
-              <span className="text-[#00B8D4]">
-                No listing fees. No selling fees.
+            {/* HERO HEADER */}
+            <h1 className="mt-6 text-4xl font-extrabold tracking-tight md:text-6xl">
+              <span className="block">Join the Club.</span>
+              <span className="mt-3 block text-[#00B8D4]">
+                No listing fees.
+              </span>
+              <span className="mt-2 block text-[#00B8D4]">
+                No selling fees.
               </span>
             </h1>
 
-            {/* Store buttons directly under headline */}
-            <div id="get-app" className="mt-8 flex flex-col gap-4 sm:flex-row">
+            {/* HERO ART (mobile-first placement) */}
+            <div className="mt-8 overflow-hidden rounded-3xl ring-1 ring-white/10 md:hidden">
+              <img
+                src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1600&q=70"
+                alt="Sports trading cards"
+                className="h-64 w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Meet local hobbyists — BRANDED */}
+            <h2 className="mt-8 text-2xl font-bold tracking-tight md:text-3xl">
+              Meet local <span className="text-[#00B8D4]">hobbyists</span>
+            </h2>
+            <div className="mt-3 h-1 w-14 rounded-full bg-[#00B8D4]/70" />
+
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
+              A simple way to buy, sell, and trade cards with people near you—without
+              giving up 30% or more to traditional online marketplaces. Keep more of
+              the value in your pocket by chasing cards locally with other hobbyists.
+            </p>
+          </div>
+
+          {/* Right: Desktop hero art + store buttons */}
+          <div className="hidden md:block">
+            <div className="overflow-hidden rounded-3xl ring-1 ring-white/10">
+              <img
+                src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=1600&q=70"
+                alt="Sports trading cards"
+                className="h-[420px] w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Store buttons under art */}
+            <div id="get-app" className="mt-6 flex flex-col gap-4">
               <a
                 href={APP_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Download on the App Store"
                 className="inline-flex h-14 items-center justify-center rounded-xl bg-black px-6 text-white ring-1 ring-white/10 hover:opacity-90"
               >
                 <div className="text-left leading-tight">
@@ -115,7 +148,6 @@ export default function Home() {
                 href={PLAY_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Get it on Google Play"
                 className="inline-flex h-14 items-center justify-center rounded-xl bg-black px-6 text-white ring-1 ring-white/10 hover:opacity-90"
               >
                 <div className="text-left leading-tight">
@@ -123,43 +155,6 @@ export default function Home() {
                   <div className="text-sm font-semibold">Google Play</div>
                 </div>
               </a>
-            </div>
-
-            {/* ONLY MOVE: "Meet local hobbyists." becomes the header for the first paragraph */}
-            <h2 className="mt-6 text-2xl font-semibold tracking-tight text-white md:text-3xl">
-              Meet local hobbyists.
-            </h2>
-
-            {/* Supporting paragraph moved below buttons */}
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 md:text-lg">
-              A simple way to buy, sell, and trade cards with people near you—without giving up 30%
-              or more to traditional online marketplaces. Keep more of the value in your pocket by
-              chasing cards locally with other hobbyists.
-            </p>
-          </div>
-
-          {/* Right - Placeholder hero art (phone/in-app visual later) */}
-          <div className="rounded-3xl bg-white/5 p-5 ring-1 ring-white/10">
-            <div className="rounded-2xl bg-gradient-to-b from-white/10 to-transparent p-5">
-              <div className="flex items-center justify-between">
-                <p className="text-sm text-white/70">In-app map preview</p>
-                <span className="rounded-full bg-[#00B8D4]/20 px-3 py-1 text-xs font-semibold text-[#00B8D4] ring-1 ring-[#00B8D4]/40">
-                  Teaser
-                </span>
-              </div>
-
-              <div className="mt-4 overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10">
-                <div className="h-64 w-full bg-[radial-gradient(circle_at_25%_30%,rgba(0,184,212,0.35),transparent_45%),radial-gradient(circle_at_70%_55%,rgba(255,255,255,0.10),transparent_45%)]" />
-                <div className="p-4">
-                  <p className="text-sm text-white/75">
-                    Phone + in-app map visual goes here (with your branded waypoint).
-                  </p>
-                  <p className="mt-2 text-xs text-white/45">
-                    We’ll swap this placeholder once the waypoint asset is finalized in the logo
-                    thread.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -274,16 +269,10 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap gap-2 text-sm text-white/55">
-              <a
-                className="rounded-lg px-3 py-2 hover:bg-white/10 hover:text-[#00B8D4]"
-                href="#how"
-              >
+              <a className="rounded-lg px-3 py-2 hover:bg-white/10 hover:text-[#00B8D4]" href="#how">
                 How it works
               </a>
-              <a
-                className="rounded-lg px-3 py-2 hover:bg-white/10 hover:text-[#00B8D4]"
-                href="#why"
-              >
+              <a className="rounded-lg px-3 py-2 hover:bg-white/10 hover:text-[#00B8D4]" href="#why">
                 Why CCC
               </a>
               <a
