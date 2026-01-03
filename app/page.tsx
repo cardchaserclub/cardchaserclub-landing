@@ -53,20 +53,15 @@ export default function Home() {
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#1B1B1B]/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          {/* UPDATED: Logo only (removed words) */}
           <div className="flex items-center gap-3">
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               alt="Card Chaser Club"
               width={42}
               height={42}
               priority
             />
-            <div className="leading-tight">
-              <div className="text-sm font-semibold tracking-tight text-white">
-                <span className="text-[#00B8D4]">Card</span> Chaser{" "}
-                <span className="text-[#00B8D4]">Club</span>
-              </div>
-            </div>
           </div>
 
           <nav className="hidden items-center gap-6 md:flex">
@@ -148,7 +143,7 @@ export default function Home() {
           <div className="mt-3 h-1 w-14 rounded-full bg-[#00B8D4]/70" />
 
           <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/75 md:text-lg">
-            Buy, sell, and trade cards with people near you—without giving up 30%
+            Buy, sell, and trade cards with people near you without giving up 30%
             or more to traditional online marketplaces. Chase cards locally and
             meet other hobbyists.
           </p>
