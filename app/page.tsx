@@ -56,7 +56,7 @@ export default function Home() {
           {/* UPDATED: Logo only (removed words) */}
           <div className="flex items-center gap-3">
             <Image
-              src="/logo.svg"
+              src="/logo.png"
               alt="Card Chaser Club"
               width={42}
               height={42}
